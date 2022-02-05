@@ -8,6 +8,12 @@ pipeline {
                 sh "ls -lat"
             }
         }
+        stage ("ansible syntax check") {
+            steps {
+                sh "pwd"
+                sh "ansible-playbook -i inventory.ini --syntax-check tomcat-setup.yaml"
+            }
+        }
         stage ("Job cleanup"){
             steps {
                 deleteDir()
