@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    parameters {
+        string (name: playbookFilename, Description: "Please give your playbook file name" )
+    }
+    }
     stages {
         stage ("Git Clone"){
             steps {
@@ -11,7 +15,12 @@ pipeline {
         stage ("ansible syntax check") {
             steps {
                 sh "pwd"
-                sh "ansible-playbook -i inventory.ini --syntax-check tomcat-setup.yaml"
+                sh "ansible-playbook -i inventory.ini --syntax-check params.playbookFilename"
+            }
+        }
+        stage ("Run ansible playbook"){
+            steps {
+
             }
         }
         stage ("Job cleanup"){
