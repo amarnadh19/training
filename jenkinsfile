@@ -3,8 +3,12 @@ pipeline {
     stages {
         stage ("Git Clone"){
             steps {
-               git credentialsId: 'traininggit', url: 'https://github.com/amarnadh19/training.git'
-                sh "ls -lat"
+
+                checkout scm: ([
+                    $class: 'GitSCM',
+                    userRemoteConfigs: [[credentialsId: 'traininggit',url: https://github.com/amarnadh19/training.git]],
+                    branches: [[name: 'refs/tags/master']]
+            ])
             }
         }
     }
