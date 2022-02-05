@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage ("Git Clone"){
             steps {
-               git credentialsId: 'traininggit', url: 'https://github.com/amarnadh19/training.git'
+                git branch: 'main',
+                    credentialsId: 'traininggit', url: 'https://github.com/amarnadh19/training.git'
                 sh "ls -lat"
             }
         }
