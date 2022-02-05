@@ -1,7 +1,7 @@
 pipeline {
     agent any
-    parameters {
-        string (name: playbookFilename, description: "Please give your playbook file name" )
+    environments {
+        playbookFilename: "tomcat-setup.yaml"
     }
     stages {
         stage ("Git Clone"){
