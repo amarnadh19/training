@@ -17,11 +17,6 @@ pipeline {
                 sh "ansible-playbook -i inventory.ini --syntax-check ${params.playbookFilename}"
             }
         }
-        stage ("Run ansible playbook"){
-            steps {
-
-            }
-        }
         stage ("Job cleanup"){
             steps {
                 deleteDir()
