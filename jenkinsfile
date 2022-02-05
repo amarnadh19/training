@@ -19,7 +19,10 @@ pipeline {
         }
         stage ("ansible run") {
             steps {
-                sh "ansible-playbook -i inventory.ini ${playbookFilename} -v"
+               ansiblePlaybook(
+                inventory: "inventory.ini",
+                playbook: "${playbookFilename}"
+               )
             }
         }
         stage ("Job cleanup"){
