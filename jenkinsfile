@@ -1,7 +1,11 @@
 pipeline {
     agent any
-    environments {
+    environment {
         playbookFilename: "tomcat-setup.yaml"
+    }
+
+    parameter {
+        string (name: testing)
     }
     stages {
         stage ("Git Clone"){
@@ -15,6 +19,7 @@ pipeline {
             steps {
                 sh "pwd"
                 sh "ansible-playbook -i inventory.ini --syntax-check ${playbookFilename}"
+                echo "${testing}"
             }
         }
         stage ("Job cleanup"){
