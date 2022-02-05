@@ -8,10 +8,13 @@ pipeline {
                 sh "ls -lat"
             }
         }
+        stage ("Job cleanup"){
+            steps {
+                deleteDir()
+            }
+        }
     }
     post {
-        always:
-            deleteDir()
         Success:
             echo "Job executed"
     }
