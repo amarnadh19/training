@@ -15,7 +15,6 @@ pipeline {
             steps {
                 sh "pwd"
                 sh "ansible-playbook -i inventory.ini --syntax-check ${playbookFilename}"
-                echo "${testing}"
             }
         }
         stage ("ansible run") {
