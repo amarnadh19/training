@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters {
-        string (name: playbookFilename, Description: "Please give your playbook file name" )
+        string (name: playbookFilename, description: "Please give your playbook file name" )
     }
     stages {
         stage ("Git Clone"){
