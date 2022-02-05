@@ -7,24 +7,8 @@ pipeline {
         stage ("Git Clone"){
             steps {
                 git branch: 'main',
-                    credentialsId: 'traininggit', url: 'https://github.com/amarnadh19/training.git'
+                    credentialsId: 'githubamar', url: 'https://github.com/amarnadh19/training.git'
                 sh "ls -lat"
-            }
-        }
-        stage ("ansible syntax check") {
-            steps {
-                sh "pwd"
-                sh "ansible-playbook -i inventory.ini --syntax-check ${playbookFilename}"
-            }
-        }
-        stage ("ansible run") {
-            steps {
-                sh "ansible-playbook -i inventory.ini ${playbookFilename} -v -bK"
-            }
-        }
-        stage ("Job cleanup"){
-            steps {
-                deleteDir()
             }
         }
     }
