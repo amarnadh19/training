@@ -9,4 +9,10 @@ pipeline {
             }
         }
     }
+    post {
+        always:
+            deleteDir()
+        Success:
+            echo "Job executed"
+    }
 }
