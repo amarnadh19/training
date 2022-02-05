@@ -1,10 +1,11 @@
 pipeline {
     agent any
-
     stages {
-        stage('Hello') {
+        stage ("Git Clone"){
             steps {
-                echo 'this is from Main branch'
+               git credentialsId: 'traininggit', url: 'https://github.com/amarnadh19/training.git'
+
+                sh "ls -lat"
             }
         }
     }
