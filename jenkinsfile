@@ -1,10 +1,10 @@
 pipeline {
     agent any
     environment {
-        playbookFilename: "tomcat-setup.yaml"
+        playbookFilename = "tomcat-setup.yaml"
     }
 
-    parameter {
+    parameters {
         string (name: testing)
     }
     stages {
