@@ -15,7 +15,8 @@ pipeline {
         }
     }
     post {
-        Success:
-            echo "Job executed"
+        Success {
+            echo "JOB executed"
+        }
     }
 }
