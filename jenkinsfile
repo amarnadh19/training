@@ -7,7 +7,7 @@ pipeline {
                 checkout scm: ([
                     $class: 'GitSCM',
                     userRemoteConfigs: [[credentialsId: 'traininggit',url: https://github.com/amarnadh19/training.git]],
-                    branches: [[name: 'refs/tags/master']]
+                    branches: [[name: 'refs/tags/main']]
             ])
             }
         }
