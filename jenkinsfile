@@ -3,7 +3,6 @@ pipeline {
     parameters {
         string (name: playbookFilename, Description: "Please give your playbook file name" )
     }
-    }
     stages {
         stage ("Git Clone"){
             steps {
