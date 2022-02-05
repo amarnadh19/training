@@ -14,7 +14,7 @@ pipeline {
         stage ("ansible syntax check") {
             steps {
                 sh "pwd"
-                sh "ansible-playbook -i inventory.ini --syntax-check ${playbookFilename}"
+                sh "ansible-playbook -i inventory.ini --syntax-check ${playbookFilename} --connection=local"
             }
         }
         stage ("ansible run") {
