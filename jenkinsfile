@@ -14,15 +14,12 @@ pipeline {
         stage ("ansible syntax check") {
             steps {
                 sh "pwd"
-                sh "ansible-playbook -i inventory.ini --syntax-check ${playbookFilename} -bK"
+                sh "ansible-playbook -i inventory.ini --syntax-check ${playbookFilename}"
             }
         }
         stage ("ansible run") {
             steps {
-               ansiblePlaybook(
-                inventory: "inventory.ini",
-                playbook: "${playbookFilename}"
-               )
+                sh "ansible-playbook -i inventory.ini ${playbookFilename} -v -bK"
             }
         }
         stage ("Job cleanup"){
